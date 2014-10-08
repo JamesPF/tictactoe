@@ -1,0 +1,44 @@
+.wrapper {
+	position: relative;
+	margin: 0 auto;
+	width: 750px;
+	height: 600px;
+	background-color: black;
+	margin-top: 50px;
+}
+
+.header {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: green;
+	width: 75%;
+	height: 20%;
+}
+
+.header h1 {
+	text-align: center;
+	color: white;
+	font-family: Arial;
+	font-size: 54px;
+	padding-top: 20px;
+}
+
+.game-container {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: red;
+	width: 75%;
+	height: 75%;
+}
+
+.cell {
+	position: relative;
+    display: inline-block;
+	width: 32%;
+	height: 32%;
+	background-color: orange;
+	margin-left: .6%;
+	margin-top: .5%;
+}
