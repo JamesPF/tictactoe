@@ -66,6 +66,18 @@ html, body {
 	margin-right: auto;
 }
 
+.mario{
+  background-image: url('images/mario_icon.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.kong{
+  background-image: url('images/dk_icon.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 
 @media (max-width: 980px) {

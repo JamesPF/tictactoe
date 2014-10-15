@@ -12,7 +12,7 @@
 			
 		</div>
 		<div class="gameboard">
-			<div class="cell" ng-repeat="cell in gameBoard">{{cell.name}}</div>
+			<div class="cell" ng-repeat="cell in gameBoard" ng-click="playerPicks(cell)" ng-class="{mario: cell.status == 'X', kong: cell.status == 'O' }">{{cell.name}}</div>
 		</div>
 	</div>
 </body>
