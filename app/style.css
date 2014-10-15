@@ -13,9 +13,9 @@ html, body {
 	width: 55%;
 	margin: 0 auto;
 	margin-bottom: 4px;
-	border: 4px solid red;
+	border: 6px solid red;
 	background-color: black;
-	background-image: url(images/logo2.png);
+	background-image: url(images/ttt-logo.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 97%;
@@ -40,7 +40,7 @@ html, body {
 	height: 75%;
 	width: 55%;
 	margin: 0 auto;
-	border: 4px solid green;
+	border: 6px solid green;
 }
 
 .cell {
@@ -51,6 +51,11 @@ html, body {
 	margin-left: 0.2%;
 	margin-top: 0.5%;
 	border: 4px solid blue;
+	color: white;
+}
+
+.cellClick {
+	background-color: green;
 }
 
 .cell img {
@@ -59,4 +64,48 @@ html, body {
 	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+
+
+@media (max-width: 980px) {
+	.header {
+		border: 4px solid red;
+	}
+
+	.gameboard {
+		border: 4px solid green;
+	}
+
+	.cell {
+		border: 2px solid blue;
+	}
+} 
+
+@media (max-width: 854px) {
+	.header {
+		border: 3px solid red;
+	}
+
+	.gameboard {
+		border: 3px solid green;
+	}
+
+	.cell {
+		border: 2px solid blue;
+	}
+}
+
+@media (max-width: 790px) {
+	.header {
+		border: 2px solid red;
+	}
+
+	.gameboard {
+		border: 2px solid green;
+	}
+
+	.cell {
+		border: 1px solid blue;
+	}
 }

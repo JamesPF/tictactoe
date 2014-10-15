@@ -1,23 +1,18 @@
-<!DOCTYPE <html>
+<!DOCTYPE html>
+<html>
 <head>
-	<title>Donkey Kong vs. Mario</title>
+	<title>Mario vs. Donkey Kong</title>
 	<link rel="stylesheet" style="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	<script src="main.js"></script>
 </head>
-<body>
-	<div class="wrapper">
+<body ng-app="myTicTacToe">
+	<div class="wrapper" ng-controller="GameController">
 		<div class="header">
 			
 		</div>
 		<div class="gameboard">
-			<div class="cell"><img src="images/dk_icon.png"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"><img src="images/mario_icon.png"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
-			<div class="cell"></div>
+			<div class="cell" ng-repeat="cell in gameBoard">{{cell.name}}</div>
 		</div>
 	</div>
 </body>
