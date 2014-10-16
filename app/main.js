@@ -8,17 +8,17 @@ myTicTacToe.controller('GameController', function ($scope,$firebase) {
     $scope.moveCounter = 0 ;
 
     $scope.gameBoard = [
-        {status: "A", position: 0},
-        {status: "B", position: 1},
-        {status: "C", position: 2},
+        {status: "Empty", position: 0},
+        {status: "Empty", position: 1},
+        {status: "Empty", position: 2},
 
-        {status: "D", position: 3},
-        {status: "E", position: 4},
-        {status: "F", position: 5},
+        {status: "Empty", position: 3},
+        {status: "Empty", position: 4},
+        {status: "Empty", position: 5},
 
-        {status: "G", position: 6},
-        {status: "H", position: 7},
-        {status: "I", position: 8}
+        {status: "Empty", position: 6},
+        {status: "Empty", position: 7},
+        {status: "Empty", position: 8}
     ];
 
     // This container object is what gets synced:
@@ -54,14 +54,24 @@ myTicTacToe.controller('GameController', function ($scope,$firebase) {
     $scope.moveCounter = $scope.moveCounter + 1 ;
         console.log("Cell was: " + cellObject.status) ;
         if (($scope.moveCounter % 2) == 1) {
-            cellObject.status = "X" ; 
+            if (cellObject.status != "X" && cellObject.status != "O") {
+            cellObject.status = "X" ;
+            console.log("Cell is now: " + cellObject.status) ;
+            } else {console.log("This cell is taken");
+        } 
         } else {
+            if (cellObject.status != "X" && cellObject.status != "O") {
             cellObject.status = "O" ;
+            console.log("Cell is now: " + cellObject.status) ;
+            } else {console.log("This cell is taken");
+        }
         } 
         console.log("Cell is now: " + cellObject.status) ;
 
 
-           // The four lines below are a test to make sure that the win logic is registering properly.
+
+
+//         The four lines below are a test to make sure that the win logic is registering properly.
 //         console.log("1st cell status-"+$scope.gameContainer.gameBoardArray[0].status);
 //         console.log("2st cell status-"+$scope.gameContainer.gameBoardArray[1].status);
 //         console.log("3st cell status-"+$scope.gameContainer.gameBoardArray[2].status);
@@ -92,9 +102,7 @@ myTicTacToe.controller('GameController', function ($scope,$firebase) {
     console.log("Tie game!");
     } else {
        "" ;
-    }   
-
-
+    };
     
     };
     
