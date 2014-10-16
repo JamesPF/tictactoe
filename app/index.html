@@ -4,15 +4,19 @@
 	<title>Mario vs. Donkey Kong</title>
 	<link rel="stylesheet" style="text/css" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	<!-- Firebase -->
+	<script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+	<!-- AngularFire -->
+	<script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
 	<script src="main.js"></script>
 </head>
 <body ng-app="myTicTacToe">
-	<div class="wrapper" ng-controller="GameController">
+	<div class="wrapper" ng-controller="GameController" ng-model="gameContainer">
 		<div class="header">
 			
 		</div>
 		<div class="gameboard">
-			<div class="cell" ng-repeat="cell in gameBoard" ng-click="playerPicks(cell)" ng-class="{mario: cell.status == 'X', kong: cell.status == 'O' }">{{cell.name}}</div>
+			<div class="cell" ng-repeat="singleCell in gameContainer.gameBoardArray" ng-click="playerPicks(singleCell)" ng-class="{mario: singleCell.status == 'X', kong: singleCell.status == 'O' }">{{singleCell.status}}</div>
 		</div>
 	</div>
 </body>
