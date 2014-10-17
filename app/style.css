@@ -37,15 +37,14 @@ html, body {
 }
 
 .left {
-	display: inline-block;
-    border: 2px solid white;
+    /* border: 2px solid white; */
     float: left;
     height: 55%;
     width: 31.44%;
 }
 
 .right {
-    border: 2px solid white;
+    /* border: 2px solid white; */
     float: left;
     height: 55%;
     width: 31.44%;
@@ -54,9 +53,23 @@ html, body {
 .bottom {
 	clear: both;
 	margin: 0 auto;
-	border: 2px solid white;
-	height: 10%;
+	/* border: 2px solid white; */
+	height: 15%;
 	width: 55%;
+}
+
+.resetbutton {
+	/* border: 1px solid red; */
+	border: none;
+	outline: none;
+	background-color: black;
+	color: red;
+	font-family: "Arial Black";
+	font-size: 20px;
+	width: 30%;
+	height: 50%;
+	margin-left: 35%;
+	margin-right: 35%;
 }
 
 div h1 {
@@ -71,13 +84,19 @@ div h2 {
 	font-family: Arial;
 }
 
+div img {
+	margin-left: 25%;
+	width: 50%;
+	height: 50%;
+}
+
 .gameboard {
 	float: left;
 	height: 60%;
 	width: 35%;
 	margin: 0 auto;
 	padding-left: 0.7%;
-	border: 6px solid green;
+	/* border: 6px solid green; */
 }
 
 .cell {

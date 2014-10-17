@@ -31,7 +31,10 @@ myTicTacToe.controller('GameController', function ($scope,$firebase) {
   $scope.gameContainer = {
     gameBoardArray: $scope.gameBoard,
     clickCounter: $scope.moveCounter,
-    fbgameOver: $scope.gameOver
+    fbgameOver: $scope.gameOver,
+    fbgameOutcome: $scope.gameOutcome,
+    fbmarioScore: $scope.marioScore,
+    fbkongScore: $scope.kongScore 
   } ;
 
   // Everywhere else in your program, use $scope.gameContainer.cellListArray instead of cellList.
@@ -75,20 +78,20 @@ myTicTacToe.controller('GameController', function ($scope,$firebase) {
           xWins = true;
           $scope.gameContainer.fbgameOver = true;
           console.log("x wins");
-          $scope.gameOutcome = "Mario Wins!";
-          $scope.marioScore++;
+          $scope.gameContainer.fbgameOutcome = "Mario Wins!";
+          $scope.gameContainer.fbmarioScore++;
         } else {
           oWins = true;
           $scope.gameContainer.fbgameOver = true;
           console.log("O wins");
-          $scope.gameOutcome = "Donkey Kong Wins!";
-          $scope.kongScore++;
+          $scope.gameContainer.fbgameOutcome = "Donkey Kong Wins!";
+          $scope.gameContainer.fbkongScore++;
         } 
       }
     else if ( $scope.gameContainer.clickCounter == 9) {
       $scope.gameContainer.fbgameOver == true;
       console.log("Tie game!");
-      $scope.gameOutcome = "Tie Game!";
+      $scope.gameContainer.fbgameOutcome = "Tie Game!";
     }
     };
 
@@ -126,10 +129,10 @@ myTicTacToe.controller('GameController', function ($scope,$firebase) {
       $scope.gameContainer.gameBoardArray[6].status = "Empty";
       $scope.gameContainer.gameBoardArray[7].status = "Empty";
       $scope.gameContainer.gameBoardArray[8].status = "Empty";
-      $scope.gameOutcome = "";
+      $scope.gameContainer.fbgameOutcome = "";
       $scope.xWins = false;
       $scope.oWins = false;
       $scope.gameContainer.fbgameOver = false;
     };
-    
+
 });
