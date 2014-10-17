@@ -51,16 +51,16 @@ myTicTacToe.controller('GameController', function ($scope,$firebase) {
     // gameover = false;
 
     $scope.playerPicks = function(cellObject) {
-    $scope.moveCounter = $scope.moveCounter + 1 ;
+    $scope.moveCounter++ ;
         console.log("Cell was: " + cellObject.status) ;
         if (($scope.moveCounter % 2) == 1) {
-            if (cellObject.status != "X" && cellObject.status != "O") {
+            if (cellObject.status == "Empty") {
             cellObject.status = "X" ;
             console.log("Cell is now: " + cellObject.status) ;
             } else {console.log("This cell is taken");
         } 
         } else {
-            if (cellObject.status != "X" && cellObject.status != "O") {
+            if (cellObject.status == "Empty") {
             cellObject.status = "O" ;
             console.log("Cell is now: " + cellObject.status) ;
             } else {console.log("This cell is taken");

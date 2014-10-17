@@ -54,9 +54,6 @@ html, body {
 	color: white;
 }
 
-.cellClick {
-	background-color: green;
-}
 
 .cell img {
 	display: table-cell;
