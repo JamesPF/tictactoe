@@ -5,7 +5,7 @@ html, body {
 .wrapper {
 	height: 100%;
 	background-color: black;
-	border: 1px solid black;
+	border: 1px solid orange;
 }
 
 .header {
@@ -13,7 +13,7 @@ html, body {
 	width: 55%;
 	margin: 0 auto;
 	margin-bottom: 4px;
-	border: 6px solid red;
+	/* border: 6px solid red; */
 	background-color: black;
 	background-image: url(images/ttt-logo.png);
 	background-repeat: no-repeat;
@@ -36,10 +36,47 @@ html, body {
 	text-align: center;
 }
 
-.gameboard {
-	height: 75%;
-	width: 55%;
+.left {
+	display: inline-block;
+    border: 2px solid white;
+    float: left;
+    height: 55%;
+    width: 31.44%;
+}
+
+.right {
+    border: 2px solid white;
+    float: left;
+    height: 55%;
+    width: 31.44%;
+}
+
+.bottom {
+	clear: both;
 	margin: 0 auto;
+	border: 2px solid white;
+	height: 10%;
+	width: 55%;
+}
+
+div h1 {
+	color: red;
+	text-align: center;
+	font-family: Arial;
+}
+
+div h2 {
+	color: red;
+	text-align: center;
+	font-family: Arial;
+}
+
+.gameboard {
+	float: left;
+	height: 60%;
+	width: 35%;
+	margin: 0 auto;
+	padding-left: 0.7%;
 	border: 6px solid green;
 }
 
@@ -47,7 +84,7 @@ html, body {
 	display: inline-block;
 	float: left;
 	height: 31%;
-	width: 32%;
+	width: 31%;
 	margin-left: 0.2%;
 	margin-top: 0.5%;
 	border: 4px solid blue;
@@ -76,7 +113,7 @@ html, body {
   background-position: center;
 }
 
-
+/*
 @media (max-width: 980px) {
 	.header {
 		border: 4px solid red;
@@ -117,4 +154,4 @@ html, body {
 	.cell {
 		border: 1px solid blue;
 	}
-}
+} */

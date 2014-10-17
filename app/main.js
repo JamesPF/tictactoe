@@ -6,9 +6,12 @@ myTicTacToe.controller('GameController', function ($scope,$firebase) {
       $firebase(new Firebase("https://mario-kong.firebaseIO.com/databaseGameContainer")) ;
 
     $scope.moveCounter = 0 ;
-    var gameOver = false;
-    var xWins = false;
-    var oWins = false;
+    $scope.gameOver = false;
+    $scope.xWins = false;
+    $scope.oWins = false;
+    $scope.gameOutcome = "";
+    $scope.marioScore = 0;
+    $scope.kongScore = 0;
 
     $scope.gameBoard = [
         {status: "Empty", position: 0},
@@ -27,7 +30,8 @@ myTicTacToe.controller('GameController', function ($scope,$firebase) {
     // This container object is what gets synced:
   $scope.gameContainer = {
     gameBoardArray: $scope.gameBoard,
-    clickCounter: $scope.moveCounter
+    clickCounter: $scope.moveCounter,
+    fbgameOver: $scope.gameOver
   } ;
 
   // Everywhere else in your program, use $scope.gameContainer.cellListArray instead of cellList.
@@ -50,7 +54,7 @@ myTicTacToe.controller('GameController', function ($scope,$firebase) {
   $scope.$watch('gameContainer', function() {
     console.log('gameContainer changed!') ;
   }) ;
-    
+
 
     //         The four lines below are a test to make sure that the win logic is registering properly.
 //         console.log("1st cell status-"+$scope.gameContainer.gameBoardArray[0].status);
@@ -69,39 +73,63 @@ myTicTacToe.controller('GameController', function ($scope,$firebase) {
      {
         if (tile == "X") {
           xWins = true;
-          gameOver = true;
+          $scope.gameContainer.fbgameOver = true;
           console.log("x wins");
+          $scope.gameOutcome = "Mario Wins!";
+          $scope.marioScore++;
         } else {
           oWins = true;
-          gameOver = true;
+          $scope.gameContainer.fbgameOver = true;
           console.log("O wins");
+          $scope.gameOutcome = "Donkey Kong Wins!";
+          $scope.kongScore++;
         } 
       }
-    else if ( $scope.moveCounter == 9) {
-      gameOver == true;
+    else if ( $scope.gameContainer.clickCounter == 9) {
+      $scope.gameContainer.fbgameOver == true;
       console.log("Tie game!");
+      $scope.gameOutcome = "Tie Game!";
     }
     };
 
     $scope.playerPicks = function(cellObject) {
         console.log("Cell was: " + cellObject.status) ;
-        console.log(gameOver+" Game Over before");
-        console.log(cellObject.status == "Empty" && !gameOver);
-        if (cellObject.status == "Empty" && !gameOver) {
-          if (($scope.moveCounter % 2) == 0) {
+        console.log($scope.gameContainer.fbgameOver+" Game Over before");
+        console.log(cellObject.status == "Empty" && !$scope.gameContainer.fbgameOver);
+        if (cellObject.status == "Empty" && !$scope.gameContainer.fbgameOver) {
+          if (($scope.gameContainer.clickCounter % 2) == 0) {
             cellObject.status = "X" ;
-            $scope.moveCounter++ ;
+            $scope.gameContainer.clickCounter++ ;
             console.log("Cell is now: " + cellObject.status);
           }
           else {
             cellObject.status = "O" ;
-            $scope.moveCounter++ ;
+            $scope.gameContainer.clickCounter++ ;
             console.log("Cell is now: " + cellObject.status) ;
           } 
           winLogic(cellObject.status);
         } 
     console.log("Cell is now: " + cellObject.status) ;
-    console.log(gameOver+" Game Over after");
+    console.log($scope.gameContainer.fbgameOver+" Game Over after");
     
     };
+
+    $scope.resetGame = function() {
+      console.log("resetGame works!");
+      $scope.gameContainer.clickCounter = 0 ;
+      $scope.gameContainer.gameBoardArray[0].status = "Empty";
+      $scope.gameContainer.gameBoardArray[1].status = "Empty";
+      $scope.gameContainer.gameBoardArray[2].status = "Empty";
+      $scope.gameContainer.gameBoardArray[3].status = "Empty";
+      $scope.gameContainer.gameBoardArray[4].status = "Empty";
+      $scope.gameContainer.gameBoardArray[5].status = "Empty";
+      $scope.gameContainer.gameBoardArray[6].status = "Empty";
+      $scope.gameContainer.gameBoardArray[7].status = "Empty";
+      $scope.gameContainer.gameBoardArray[8].status = "Empty";
+      $scope.gameOutcome = "";
+      $scope.xWins = false;
+      $scope.oWins = false;
+      $scope.gameContainer.fbgameOver = false;
+    };
+    
 });
