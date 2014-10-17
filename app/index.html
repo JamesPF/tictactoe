@@ -16,7 +16,7 @@
 			
 		</div>
 		<div class="gameboard">
-			<div class="cell" ng-repeat="singleCell in gameContainer.gameBoardArray" ng-click="playerPicks(singleCell)" ng-class="{mario: singleCell.status == 'X', kong: singleCell.status == 'O' }">{{singleCell.status}}</div>
+			<div class="cell" ng-repeat="singleCell in gameContainer.gameBoardArray" ng-click="playerPicks(singleCell)" ng-class="{mario: singleCell.status == 'X', kong: singleCell.status == 'O' }">{{singleCell.status}}{{gameContainer.clickCounter}}</div>
 		</div>
 	</div>
 </body>

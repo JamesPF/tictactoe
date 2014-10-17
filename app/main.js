@@ -6,6 +6,9 @@ myTicTacToe.controller('GameController', function ($scope,$firebase) {
       $firebase(new Firebase("https://mario-kong.firebaseIO.com/databaseGameContainer")) ;
 
     $scope.moveCounter = 0 ;
+    var gameOver = false;
+    var xWins = false;
+    var oWins = false;
 
     $scope.gameBoard = [
         {status: "Empty", position: 0},
@@ -47,66 +50,58 @@ myTicTacToe.controller('GameController', function ($scope,$firebase) {
   $scope.$watch('gameContainer', function() {
     console.log('gameContainer changed!') ;
   }) ;
+    
 
-    // gameover = false;
-
-    $scope.playerPicks = function(cellObject) {
-        console.log("Cell was: " + cellObject.status) ;
-        if (($scope.moveCounter % 2) == 1) {
-            if (cellObject.status == "Empty") {
-            cellObject.status = "X" ;
-            $scope.moveCounter++ ;
-            console.log("Cell is now: " + cellObject.status) ;
-            } else {console.log("This cell is taken");
-        } 
-        } else {
-            if (cellObject.status == "Empty") {
-            cellObject.status = "O" ;
-            $scope.moveCounter++ ;
-            console.log("Cell is now: " + cellObject.status) ;
-            } else {console.log("This cell is taken");
-        }
-        } 
-        console.log("Cell is now: " + cellObject.status) ;
-
-
-
-
-//         The four lines below are a test to make sure that the win logic is registering properly.
+    //         The four lines below are a test to make sure that the win logic is registering properly.
 //         console.log("1st cell status-"+$scope.gameContainer.gameBoardArray[0].status);
 //         console.log("2st cell status-"+$scope.gameContainer.gameBoardArray[1].status);
 //         console.log("3st cell status-"+$scope.gameContainer.gameBoardArray[2].status);
 // console.log("1st cond"+($scope.gameContainer.gameBoardArray[0].status == $scope.gameContainer.gameBoardArray[1].status) && ($scope.gameContainer.gameBoardArray[1].status == $scope.gameContainer.gameBoardArray[2].status));
-
-    if ($scope.gameContainer.gameBoardArray[0].status == "X" && ($scope.gameContainer.gameBoardArray[0].status == $scope.gameContainer.gameBoardArray[1].status) && ($scope.gameContainer.gameBoardArray[1].status == $scope.gameContainer.gameBoardArray[2].status) ||
-    $scope.gameContainer.gameBoardArray[3].status == "X" && ($scope.gameContainer.gameBoardArray[3].status == $scope.gameContainer.gameBoardArray[4].status) && ($scope.gameContainer.gameBoardArray[4].status == $scope.gameContainer.gameBoardArray[5].status) ||
-    $scope.gameContainer.gameBoardArray[6].status == "X" && ($scope.gameContainer.gameBoardArray[6].status == $scope.gameContainer.gameBoardArray[7].status) && ($scope.gameContainer.gameBoardArray[7].status == $scope.gameContainer.gameBoardArray[8].status) ||
-    $scope.gameContainer.gameBoardArray[0].status == "X" && ($scope.gameContainer.gameBoardArray[0].status == $scope.gameContainer.gameBoardArray[3].status) && ($scope.gameContainer.gameBoardArray[3].status == $scope.gameContainer.gameBoardArray[6].status) ||
-    $scope.gameContainer.gameBoardArray[1].status == "X" && ($scope.gameContainer.gameBoardArray[1].status == $scope.gameContainer.gameBoardArray[4].status) && ($scope.gameContainer.gameBoardArray[4].status == $scope.gameContainer.gameBoardArray[7].status) ||
-    $scope.gameContainer.gameBoardArray[2].status == "X" && ($scope.gameContainer.gameBoardArray[2].status == $scope.gameContainer.gameBoardArray[5].status) && ($scope.gameContainer.gameBoardArray[5].status == $scope.gameContainer.gameBoardArray[8].status) ||
-    $scope.gameContainer.gameBoardArray[0].status == "X" && ($scope.gameContainer.gameBoardArray[0].status == $scope.gameContainer.gameBoardArray[4].status) && ($scope.gameContainer.gameBoardArray[4].status == $scope.gameContainer.gameBoardArray[8].status) ||
-    $scope.gameContainer.gameBoardArray[2].status == "X" && ($scope.gameContainer.gameBoardArray[2].status == $scope.gameContainer.gameBoardArray[4].status) && ($scope.gameContainer.gameBoardArray[4].status == $scope.gameContainer.gameBoardArray[6].status)) 
-    {
-    console.log("X wins!");
-    } else if ($scope.gameContainer.gameBoardArray[0].status == "O" && ($scope.gameContainer.gameBoardArray[0].status == $scope.gameContainer.gameBoardArray[1].status) && ($scope.gameContainer.gameBoardArray[1].status == $scope.gameContainer.gameBoardArray[2].status) ||
-    $scope.gameContainer.gameBoardArray[3].status == "O" && ($scope.gameContainer.gameBoardArray[3].status == $scope.gameContainer.gameBoardArray[4].status) && ($scope.gameContainer.gameBoardArray[4].status == $scope.gameContainer.gameBoardArray[5].status) ||
-    $scope.gameContainer.gameBoardArray[6].status == "O" && ($scope.gameContainer.gameBoardArray[6].status == $scope.gameContainer.gameBoardArray[7].status) && ($scope.gameContainer.gameBoardArray[7].status == $scope.gameContainer.gameBoardArray[8].status) ||
-    $scope.gameContainer.gameBoardArray[0].status == "O" && ($scope.gameContainer.gameBoardArray[0].status == $scope.gameContainer.gameBoardArray[3].status) && ($scope.gameContainer.gameBoardArray[3].status == $scope.gameContainer.gameBoardArray[6].status) ||
-    $scope.gameContainer.gameBoardArray[1].status == "O" && ($scope.gameContainer.gameBoardArray[1].status == $scope.gameContainer.gameBoardArray[4].status) && ($scope.gameContainer.gameBoardArray[4].status == $scope.gameContainer.gameBoardArray[7].status) ||
-    $scope.gameContainer.gameBoardArray[2].status == "O" && ($scope.gameContainer.gameBoardArray[2].status == $scope.gameContainer.gameBoardArray[5].status) && ($scope.gameContainer.gameBoardArray[5].status == $scope.gameContainer.gameBoardArray[8].status) ||
-    $scope.gameContainer.gameBoardArray[0].status == "O" && ($scope.gameContainer.gameBoardArray[0].status == $scope.gameContainer.gameBoardArray[4].status) && ($scope.gameContainer.gameBoardArray[4].status == $scope.gameContainer.gameBoardArray[8].status) ||
-    $scope.gameContainer.gameBoardArray[2].status == "O" && ($scope.gameContainer.gameBoardArray[2].status == $scope.gameContainer.gameBoardArray[4].status) && ($scope.gameContainer.gameBoardArray[4].status == $scope.gameContainer.gameBoardArray[6].status))
-    {
-        console.log("O wins!");
-    }
+    var winLogic = function(tile) {
+      if ($scope.gameContainer.gameBoardArray[0].status == tile && ($scope.gameContainer.gameBoardArray[0].status == $scope.gameContainer.gameBoardArray[1].status) && ($scope.gameContainer.gameBoardArray[1].status == $scope.gameContainer.gameBoardArray[2].status) ||
+          $scope.gameContainer.gameBoardArray[3].status == tile && ($scope.gameContainer.gameBoardArray[3].status == $scope.gameContainer.gameBoardArray[4].status) && ($scope.gameContainer.gameBoardArray[4].status == $scope.gameContainer.gameBoardArray[5].status) ||
+          $scope.gameContainer.gameBoardArray[6].status == tile && ($scope.gameContainer.gameBoardArray[6].status == $scope.gameContainer.gameBoardArray[7].status) && ($scope.gameContainer.gameBoardArray[7].status == $scope.gameContainer.gameBoardArray[8].status) ||
+          $scope.gameContainer.gameBoardArray[0].status == tile && ($scope.gameContainer.gameBoardArray[0].status == $scope.gameContainer.gameBoardArray[3].status) && ($scope.gameContainer.gameBoardArray[3].status == $scope.gameContainer.gameBoardArray[6].status) ||
+          $scope.gameContainer.gameBoardArray[1].status == tile && ($scope.gameContainer.gameBoardArray[1].status == $scope.gameContainer.gameBoardArray[4].status) && ($scope.gameContainer.gameBoardArray[4].status == $scope.gameContainer.gameBoardArray[7].status) ||
+          $scope.gameContainer.gameBoardArray[2].status == tile && ($scope.gameContainer.gameBoardArray[2].status == $scope.gameContainer.gameBoardArray[5].status) && ($scope.gameContainer.gameBoardArray[5].status == $scope.gameContainer.gameBoardArray[8].status) ||
+          $scope.gameContainer.gameBoardArray[0].status == tile && ($scope.gameContainer.gameBoardArray[0].status == $scope.gameContainer.gameBoardArray[4].status) && ($scope.gameContainer.gameBoardArray[4].status == $scope.gameContainer.gameBoardArray[8].status) ||
+          $scope.gameContainer.gameBoardArray[2].status == tile && ($scope.gameContainer.gameBoardArray[2].status == $scope.gameContainer.gameBoardArray[4].status) && ($scope.gameContainer.gameBoardArray[4].status == $scope.gameContainer.gameBoardArray[6].status)) 
+     {
+        if (tile == "X") {
+          xWins = true;
+          gameOver = true;
+          console.log("x wins");
+        } else {
+          oWins = true;
+          gameOver = true;
+          console.log("O wins");
+        } 
+      }
     else if ( $scope.moveCounter == 9) {
-    console.log("Tie game!");
-    } else {
-       "" ;
+      gameOver == true;
+      console.log("Tie game!");
+    }
     };
+
+    $scope.playerPicks = function(cellObject) {
+        console.log("Cell was: " + cellObject.status) ;
+        console.log(gameOver+" Game Over before");
+        console.log(cellObject.status == "Empty" && !gameOver);
+        if (cellObject.status == "Empty" && !gameOver) {
+          if (($scope.moveCounter % 2) == 0) {
+            cellObject.status = "X" ;
+            $scope.moveCounter++ ;
+            console.log("Cell is now: " + cellObject.status);
+          }
+          else {
+            cellObject.status = "O" ;
+            $scope.moveCounter++ ;
+            console.log("Cell is now: " + cellObject.status) ;
+          } 
+          winLogic(cellObject.status);
+        } 
+    console.log("Cell is now: " + cellObject.status) ;
+    console.log(gameOver+" Game Over after");
     
     };
-    
-
-
 });
