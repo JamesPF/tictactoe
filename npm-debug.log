@@ -1,0 +1,143 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'update', '-g', 'firebase-tools' ]
+2 info using npm@2.1.3
+3 info using node@v0.10.32
+4 verbose node symlink /usr/local/bin/node
+5 verbose mapToRegistry name firebase-tools
+6 verbose mapToRegistry uri https://registry.npmjs.org/firebase-tools
+7 verbose request on initialization, where is /firebase-tools
+8 verbose request after pass 1, where is /firebase-tools
+9 verbose request url raw /firebase-tools
+10 verbose request resolving registry [ 'https://registry.npmjs.org/', './firebase-tools' ]
+11 verbose request after pass 2, where is https://registry.npmjs.org/firebase-tools
+12 verbose request no auth needed
+13 info attempt registry request try #1 at 12:34:38
+14 verbose request id 3d3a8635e6ec1fe2
+15 verbose etag "3CI2BGBCIG3H3J48W6FXOYWK4"
+16 http request GET https://registry.npmjs.org/firebase-tools
+17 http 200 https://registry.npmjs.org/firebase-tools
+18 silly registry.get cb [ 200,
+18 silly registry.get   { date: 'Tue, 20 Jan 2015 20:34:43 GMT',
+18 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+18 silly registry.get     etag: '"5VJJLV66SWPD6U5A05VSHLWMR"',
+18 silly registry.get     'content-type': 'application/json',
+18 silly registry.get     'cache-control': 'max-age=60',
+18 silly registry.get     'content-length': '38362',
+18 silly registry.get     'accept-ranges': 'bytes',
+18 silly registry.get     via: '1.1 varnish',
+18 silly registry.get     age: '0',
+18 silly registry.get     'x-served-by': 'cache-lax1434-LAX',
+18 silly registry.get     'x-cache': 'MISS',
+18 silly registry.get     'x-cache-hits': '0',
+18 silly registry.get     'x-timer': 'S1421786082.968434,VS0,VE71',
+18 silly registry.get     vary: 'Accept',
+18 silly registry.get     'keep-alive': 'timeout=10, max=50',
+18 silly registry.get     connection: 'Keep-Alive' } ]
+19 info outdated updating [ [ '/usr/local/lib',
+19 info outdated     'firebase-tools',
+19 info outdated     '1.1.2',
+19 info outdated     '1.1.4',
+19 info outdated     '1.1.4',
+19 info outdated     'latest' ] ]
+20 verbose install where, what [ '/usr/local/lib', [ 'firebase-tools@1.1.4' ] ]
+21 silly cache add args [ 'firebase-tools@1.1.4', null ]
+22 verbose cache add spec firebase-tools@1.1.4
+23 silly cache add parsed spec { raw: 'firebase-tools@1.1.4',
+23 silly cache add   scope: null,
+23 silly cache add   name: 'firebase-tools',
+23 silly cache add   rawSpec: '1.1.4',
+23 silly cache add   spec: '1.1.4',
+23 silly cache add   type: 'version' }
+24 verbose addNamed firebase-tools@1.1.4
+25 verbose addNamed firebase-tools@1.1.4 not in flight; adding
+26 silly addNamed semver.valid 1.1.4
+27 silly addNamed semver.validRange 1.1.4
+28 verbose mapToRegistry name firebase-tools
+29 verbose mapToRegistry uri https://registry.npmjs.org/firebase-tools
+30 verbose registry.get https://registry.npmjs.org/firebase-tools not expired, no request
+31 verbose addRemoteTarball https://registry.npmjs.org/firebase-tools/-/firebase-tools-1.1.4.tgz not in flight; adding
+32 verbose addRemoteTarball [ 'https://registry.npmjs.org/firebase-tools/-/firebase-tools-1.1.4.tgz',
+32 verbose addRemoteTarball   '56c4beec90c585cc5a5f7f70dfbc111a8f3d8ccd' ]
+33 info retry fetch attempt 1 at 12:34:39
+34 info attempt registry request try #1 at 12:34:39
+35 http fetch GET https://registry.npmjs.org/firebase-tools/-/firebase-tools-1.1.4.tgz
+36 http fetch 200 https://registry.npmjs.org/firebase-tools/-/firebase-tools-1.1.4.tgz
+37 silly fetchAndShaCheck shasum 56c4beec90c585cc5a5f7f70dfbc111a8f3d8ccd
+38 verbose addTmpTarball /var/folders/l_/r714pykn3g5dpfdg18mdtsrh0000gn/T/npm-14386-66af71e8/registry.npmjs.org/firebase-tools/-/firebase-tools-1.1.4.tgz not in flight; verifying
+39 verbose addTmpTarball already have metadata; skipping unpack
+40 verbose afterAdd /Users/James/.npm/firebase-tools/1.1.4/package/package.json not in flight; writing
+41 silly install resolved [ { name: 'firebase-tools',
+41 silly install resolved     preferGlobal: true,
+41 silly install resolved     version: '1.1.4',
+41 silly install resolved     description: 'The Firebase Command Line Tools',
+41 silly install resolved     keywords:
+41 silly install resolved      [ 'firebase',
+41 silly install resolved        'hosting',
+41 silly install resolved        'ssl',
+41 silly install resolved        'cdn',
+41 silly install resolved        'cli',
+41 silly install resolved        'synchronization',
+41 silly install resolved        'real-time',
+41 silly install resolved        'websockets',
+41 silly install resolved        'cloud' ],
+41 silly install resolved     author: { name: 'Firebase', email: 'support@firebase.com' },
+41 silly install resolved     contributors: [ [Object], [Object], [Object] ],
+41 silly install resolved     repository:
+41 silly install resolved      { type: 'git',
+41 silly install resolved        url: 'https://github.com/firebase/firebase-tools.git' },
+41 silly install resolved     homepage: 'https://github.com/firebase/firebase-tools',
+41 silly install resolved     dependencies:
+41 silly install resolved      { optimist: '0.6.x',
+41 silly install resolved        prompt: '0.2.x',
+41 silly install resolved        tar: '0.1.x',
+41 silly install resolved        open: '0.0.x',
+41 silly install resolved        request: '2.34.x',
+41 silly install resolved        'fstream-ignore': '0.0.x',
+41 silly install resolved        temp: '0.6.x',
+41 silly install resolved        firebase: '~1.0.11',
+41 silly install resolved        progress: '~1.1.5',
+41 silly install resolved        when: '3.1.0',
+41 silly install resolved        chalk: '~0.4.0' },
+41 silly install resolved     bin: { firebase: './bin/firebase' },
+41 silly install resolved     engines: { node: '>=0.10.0' },
+41 silly install resolved     engineStrict: true,
+41 silly install resolved     gitHead: 'e388c2368d84ca83eecb0c107665b33a894ef530',
+41 silly install resolved     bugs: { url: 'https://github.com/firebase/firebase-tools/issues' },
+41 silly install resolved     _id: 'firebase-tools@1.1.4',
+41 silly install resolved     scripts: {},
+41 silly install resolved     _shasum: '56c4beec90c585cc5a5f7f70dfbc111a8f3d8ccd',
+41 silly install resolved     _from: 'firebase-tools@1.1.4',
+41 silly install resolved     _npmVersion: '2.1.3',
+41 silly install resolved     _nodeVersion: '0.10.28',
+41 silly install resolved     _npmUser: { name: 'firebase', email: 'operations@firebase.com' },
+41 silly install resolved     maintainers: [ [Object] ],
+41 silly install resolved     dist:
+41 silly install resolved      { shasum: '56c4beec90c585cc5a5f7f70dfbc111a8f3d8ccd',
+41 silly install resolved        tarball: 'http://registry.npmjs.org/firebase-tools/-/firebase-tools-1.1.4.tgz' },
+41 silly install resolved     directories: {},
+41 silly install resolved     _resolved: 'https://registry.npmjs.org/firebase-tools/-/firebase-tools-1.1.4.tgz' } ]
+42 info install firebase-tools@1.1.4 into /usr/local/lib
+43 info installOne firebase-tools@1.1.4
+44 verbose lock using /Users/James/.npm/_locks/firebase-tools-10d1b8d676fd02fa.lock for /usr/local/lib/node_modules/firebase-tools
+45 warn locking Error: EACCES, open '/Users/James/.npm/_locks/firebase-tools-10d1b8d676fd02fa.lock'
+45 warn locking  failed { [Error: EACCES, open '/Users/James/.npm/_locks/firebase-tools-10d1b8d676fd02fa.lock']
+45 warn locking   errno: 3,
+45 warn locking   code: 'EACCES',
+45 warn locking   path: '/Users/James/.npm/_locks/firebase-tools-10d1b8d676fd02fa.lock' }
+46 verbose stack Error: Attempt to unlock /usr/local/lib/node_modules/firebase-tools, which hasn't been locked
+46 verbose stack     at unlock (/usr/local/lib/node_modules/npm/lib/utils/locker.js:54:11)
+46 verbose stack     at cb (/usr/local/lib/node_modules/npm/lib/install.js:909:5)
+46 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:913:20
+46 verbose stack     at /usr/local/lib/node_modules/npm/lib/utils/locker.js:36:9
+46 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:149:38)
+46 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:177:38
+46 verbose stack     at Object.oncomplete (fs.js:107:15)
+47 verbose cwd /Users/James/wdi/tictactoe
+48 error Darwin 13.4.0
+49 error argv "node" "/usr/local/bin/npm" "update" "-g" "firebase-tools"
+50 error node v0.10.32
+51 error npm  v2.1.3
+52 error Attempt to unlock /usr/local/lib/node_modules/firebase-tools, which hasn't been locked
+53 error If you need help, you may report this error at:
+53 error     <http://github.com/npm/npm/issues>
+54 verbose exit [ 1, true ]

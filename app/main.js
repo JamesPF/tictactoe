@@ -3,7 +3,7 @@ var myTicTacToe = angular.module('myTicTacToe', ["firebase"]);
 myTicTacToe.controller('GameController', function ($scope,$firebase) {
 
     $scope.remoteGameContainer = 
-      $firebase(new Firebase("https://mario-kong.firebaseIO.com/databaseGameContainer")) ;
+      $firebase(new Firebase("https://space-tac-toe.firebaseIO.com/databaseGameContainer")) ;
 
     $scope.moveCounter = 0 ;
     $scope.gameOver = false;
