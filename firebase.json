@@ -1,6 +1,6 @@
 {
   "firebase": "mario-kong",
-  "public": ".",
+  "public": "app",
   "ignore": [
     "firebase.json",
     "**/.*",
