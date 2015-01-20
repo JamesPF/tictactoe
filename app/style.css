@@ -1,85 +1,19 @@
 html, body {
 	height: 100%;
-}
-
-.wrapper {
-	height: 100%;
-	background-color: black;
-	border: 1px solid orange;
-}
-
-.header {
-	height: 20%;
-	width: 55%;
-	margin: 0 auto;
-	margin-bottom: 4px;
-	/* border: 6px solid red; */
-	background-color: black;
-	background-image: url(images/ttt-logo.png);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 97%;
-}
-
-.header h1 {
-	font-family: Arial;
-	font-size: 50px;
-	color: green;
-	text-align: center;
-	margin-bottom: -25px;
-}
-
-.header h2 {
-	font-family: Arial;
-	font-size: 30px;
-	color: orange;
-	text-align: center;
-}
-
-.left {
-    /* border: 2px solid white; */
-    float: left;
-    height: 55%;
-    width: 31.44%;
-}
-
-.right {
-    /* border: 2px solid white; */
-    float: left;
-    height: 55%;
-    width: 31.44%;
-}
-
-.bottom {
-	clear: both;
-	margin: 0 auto;
-	/* border: 2px solid white; */
-	height: 15%;
-	width: 55%;
-}
-
-.resetbutton {
-	/* border: 1px solid red; */
-	border: none;
-	outline: none;
-	background-color: black;
-	color: red;
-	font-family: "Arial Black";
-	font-size: 20px;
-	width: 30%;
-	height: 50%;
-	margin-left: 35%;
-	margin-right: 35%;
+	background-image: url('images/night-sky.jpg');
+	background-size: cover;
+  background-repeat: none;
+  background-attachment: fixed;
 }
 
 div h1 {
-	color: red;
+	color: rgba(255,80,80,0.4);
 	text-align: center;
 	font-family: Arial;
 }
 
 div h2 {
-	color: red;
+	color: rgba(255,80,80,0.4);
 	text-align: center;
 	font-family: Arial;
 }
@@ -90,24 +24,67 @@ div img {
 	height: 50%;
 }
 
+.wrapper {
+	height: 100%;
+}
+
+.header {
+	height: 60px;
+	width: 380px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	background-color: rgba(256,256,256,0.15);
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.header h1 {
+	color: rgba(255,80,80,0.5);
+	font-family: Arial;
+	font-size: 50px;
+	text-align: center;
+	margin-top: 0;
+}
+
+.header h2 {
+	font-family: Arial;
+	font-size: 30px;
+	color: orange;
+	text-align: center;
+}
+
+.game-container {
+	/*	background-color: purple;*/
+	width: 907px;
+	min-height: 450px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .gameboard {
+	background-color: rgba(256,256,256,0.15);
 	float: left;
-	height: 60%;
-	width: 35%;
+	height: 462px;
+	width: 500px;
 	margin: 0 auto;
 	padding-left: 0.7%;
-	/* border: 6px solid green; */
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 .cell {
+	background-color: rgba(255,80,80,0.4);
 	display: inline-block;
 	float: left;
-	height: 31%;
-	width: 31%;
-	margin-left: 0.2%;
-	margin-top: 0.5%;
-	border: 4px solid blue;
+	height: 148px;
+	width: 160px;
+	margin-left: 4px;
+	margin-top: 4px;
 	color: white;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 
@@ -119,58 +96,217 @@ div img {
 	margin-right: auto;
 }
 
-.mario{
-  background-image: url('images/mario_icon.png');
+.one{
+  background-image: url('images/ufo-icon.png');
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: center;
 }
-.kong{
-  background-image: url('images/dk_icon.png');
+.two{
+  background-image: url('images/rocket-icon.png');
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-/*
-@media (max-width: 980px) {
-	.header {
-		border: 4px solid red;
-	}
-
-	.gameboard {
-		border: 4px solid green;
-	}
-
-	.cell {
-		border: 2px solid blue;
-	}
-} 
-
-@media (max-width: 854px) {
-	.header {
-		border: 3px solid red;
-	}
-
-	.gameboard {
-		border: 3px solid green;
-	}
-
-	.cell {
-		border: 2px solid blue;
-	}
+.left {
+	background-color: rgba(256,256,256,0.15);
+  float: left;
+  width: 200px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
-@media (max-width: 790px) {
-	.header {
-		border: 2px solid red;
-	}
+.right {
+	background-color: rgba(256,256,256,0.15);
+  float: left;
+  width: 200px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 
-	.gameboard {
-		border: 2px solid green;
-	}
+.right-small {
+	display: none;
+}
 
-	.cell {
-		border: 1px solid blue;
-	}
-} */
+.bottom {
+/*	background-color: orange;*/
+	clear: both;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: -20px;
+	height: 15%;
+	width: 55%;
+}
+
+.resetbutton {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: rgba(256,256,256,0.15);
+	color: rgba(255,80,80,0.5);
+	font-family: "Arial Black";
+	font-size: 20px;
+	width: 230px;
+	height: 50px;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.bottom h1 {
+	font-family: Arial;
+	text-align: center;
+	margin-top: 0;
+}
+
+
+
+@media screen and (max-width: 950px) {
+  .header {
+  	margin-top: 10px;
+  }
+
+  .game-container {
+/*  	background-color: green;*/
+  	height: 660px;
+  	width: 500px;
+  	margin-top: -15px;
+  }
+
+  .gameboard {
+  	float: none;
+  	border-radius: 5px;
+  	height: 530px;
+  }
+
+  .left {
+  	margin-left: auto;
+  	margin-right: auto;
+  	background-color: rgba(256,256,256,0.0);
+  }
+
+  .left h1 {
+  	display: inline-block;
+  	margin-left: 15px;
+  	margin-right: 15px;
+  	margin-top: 15px;
+  	margin-bottom: 15px;
+  }
+
+  .left h2 {
+  	display: inline-block;
+  	margin-top: 5px;
+  	margin-bottom: 15px;
+  	font-size: 30px;
+  }
+
+  .right {
+  	display: none;
+  }
+
+  .right-small {
+  	display: inline-block;
+  	float: right;
+    width: 200px;
+    margin-left: auto;
+  	margin-right: auto;
+  	margin-top: 0px;
+  	margin-bottom: 0px;
+/
+  }
+
+  .right-small h1 {
+  	display: inline-block;
+  	margin-left: 15px;
+  	margin-right: 15px;
+  	margin-top: 15px;
+  	margin-bottom: 15px;
+  }
+
+  .right-small h2 {
+  	display: inline-block;
+  	margin-top: 0;
+  	margin-bottom: 10px;
+  	font-size: 30px;
+  }
+
+  .bottom {
+  	margin-top: -120px;
+  }
+
+  .bottom h1 {
+  	margin-top: -10px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .header {
+  	margin-top: 50px;
+  	width: 320px;
+  }
+
+  .header h1 {
+  	font-size: 36px;
+  	margin-top: 8px;
+  }
+
+  .game-container {
+  	margin-top: 20px;
+  	width: 320px;
+  	height: 520px;
+  }
+
+  .gameboard {
+  	width: 320px;
+  	height: 370px;
+  }
+
+  .cell {
+  	height: 100px;
+		width: 100px;
+		margin-left: 4px;
+		margin-top: 4px;
+  }
+
+  .left {
+  	width: 160px;
+  }
+
+  .left h1 {
+  	font-size: 18px;
+  }
+
+  .left h2 {
+  	font-size: 18px;
+  }
+
+  .right-small {
+  	width: 160px;
+  }
+
+  .right-small h1 {
+  	font-size: 18px;
+  }
+
+  .right-small h2 {
+  	font-size: 18px;
+  }
+
+  .bottom {
+  	width: 320px;
+  }
+
+  .bottom h1 {
+  	margin-top: 0;
+  }
+}
+
+
+
+
+
+
+
+

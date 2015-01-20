@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mario vs. Donkey Kong</title>
+	<title>Space Tac Toe</title>
+	<meta name="viewport" content="width=device-width" />
 	<link rel="stylesheet" style="text/css" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 	<!-- Firebase -->
@@ -13,20 +14,24 @@
 <body ng-app="myTicTacToe">
 	<div class="wrapper" ng-controller="GameController" ng-model="gameContainer">
 		<div class="header">
-			
+			<h1>Space Tac Toe</h1>
 		</div>
-		<div class="left" ng-init="gameOutcomeMario()">
-			<h1>Mario:</h1>
-			<h2>{{gameContainer.fbmarioScore}}</h2>
-			<img src="images/mario_large.png" height="340" width="340">
-		</div>
-		<div class="gameboard">
-			<div class="cell" ng-repeat="singleCell in gameContainer.gameBoardArray" ng-click="playerPicks(singleCell)" ng-class="{mario: singleCell.status == 'X', kong: singleCell.status == 'O' }"><!--{{singleCell.status}}{{gameContainer.clickCounter}} --> </div>
-		</div>
-		<div class="right">
-			<h1>Donkey Kong:</h1>
-			<h2>{{gameContainer.fbkongScore}}</h2>
-			<img src="images/dk_large.png" height="340" width="340">
+		<div class="game-container">
+			<div class="left" ng-init="gameOutcomeOne()">
+				<h1>Player 1:</h1>
+				<h2>{{gameContainer.fboneScore}}</h2>
+			</div>
+			<div class="right-small">
+				<h1>Player 2:</h1>
+				<h2>{{gameContainer.fbtwoScore}}</h2>
+			</div>
+			<div class="gameboard">
+				<div class="cell" ng-repeat="singleCell in gameContainer.gameBoardArray" ng-click="playerPicks(singleCell)" ng-class="{one: singleCell.status == 'X', two: singleCell.status == 'O' }"><!--{{singleCell.status}}{{gameContainer.clickCounter}} --> </div>
+			</div>
+			<div class="right">
+				<h1>Player 2:</h1>
+				<h2>{{gameContainer.fbtwoScore}}</h2>
+			</div>
 		</div>
 		<div class="bottom">
 			<input class="resetbutton" type="submit" value="Reset Gameboard" ng-click="resetGame()" ><br>
