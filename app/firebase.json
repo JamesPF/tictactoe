@@ -1,0 +1,9 @@
+{
+  "firebase": "space-tac-toe",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
